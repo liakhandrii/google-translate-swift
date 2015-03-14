@@ -59,8 +59,14 @@ public class TranslateQuery{
         var responseData:NSData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)!
         
         var jsonResult:NSDictionary = NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+        if (jsonResult.objectForKey("data") != nil){
+            return (jsonResult.objectForKey("data") as NSDictionary).objectForKey(jsonName) as NSArray
+        }else if(jsonResult.objectForKey("error") != nil){
+            return (jsonResult.objectForKey("data") as NSDictionary).allValues
+        }else{
+            return NSArray()
+        }
         
-        return (jsonResult.objectForKey("data") as NSDictionary).objectForKey(jsonName) as NSArray
     }
     
     
