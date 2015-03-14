@@ -1,2 +1,2 @@
 # google-translate-swift
-A class for using google translate REST API
+A simple query class for using google translate REST API
