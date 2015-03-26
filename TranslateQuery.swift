@@ -50,7 +50,7 @@ public class TranslateQuery{
         
         var request = NSMutableURLRequest(URL: NSURL(string: query)!)
         request.HTTPMethod = "GET"
-        request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "content-type")
+        request.setValue("text/plain; charset=UTF-8", forHTTPHeaderField: "content-type")
         
         var response:NSURLResponse?
         
